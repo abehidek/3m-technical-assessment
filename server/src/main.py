@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from src.shared.config import settings
 from src.auth.presentation.routes.auth_routes import router as auth_router
+from src.ticket.presentation.routes.ticket_routes import router as ticket_router
 
 app = FastAPI(
     title="3m-technical-assessment",
@@ -25,6 +26,7 @@ app.add_middleware(
 
 # Register routers AFTER middleware
 app.include_router(auth_router)
+app.include_router(ticket_router)
 
 
 @app.get("/")

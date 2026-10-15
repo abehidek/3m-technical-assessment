@@ -1,0 +1,27 @@
+info:
+  name: New ticket
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: localhost:8000/ticket
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Teste2",
+        "description": "TesteDesc",
+        "category": "Teste",
+        "priority": 2
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
